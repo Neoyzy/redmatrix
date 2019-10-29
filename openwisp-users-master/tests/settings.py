@@ -24,6 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.sites',
     'django_extensions',
+    'import_export',
     'openwisp_users.accounts',  # only needed in test env
     'allauth',
     'allauth.account',
@@ -53,13 +54,15 @@ USE_TZ = True
 USE_I18N = False
 USE_L10N = False
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 CORS_ORIGIN_ALLOW_ALL = True
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'testapp/templates', 'openwisp_users', )
+            os.path.join(BASE_DIR, 'templates', )
+            # add the 'openwisp_users if login page occurs error
         ],
         'OPTIONS': {
             'loaders': [
